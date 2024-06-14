@@ -1,5 +1,5 @@
 import * as path from "path";
-import { CommandHandler, CommandInfo } from "../../handlers/index.ts";
+import { CommandHandler, CommandInfo } from "handlers";
 import { TelegramBot, Message } from "TelegramBot";
 
 class HelpCommand implements CommandHandler {

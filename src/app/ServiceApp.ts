@@ -1,6 +1,5 @@
 import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "../commands/index.ts";
-import { CommandHandler } from "../handlers/CommandHandler.ts";
-import { MessageHandler } from "../handlers/index.ts";
+import { CommandHandler, MessageHandler } from "handlers";
 import { TelegramBot, UpdateType } from "TelegramBot";
 
 export default class ServiceApp {

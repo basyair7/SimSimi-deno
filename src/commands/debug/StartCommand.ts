@@ -1,4 +1,4 @@
-import { CommandHandler } from "../../handlers/CommandHandler.ts";
+import { CommandHandler } from "handlers";
 import { TelegramBot, Message } from "TelegramBot";
 
 class StartCommand implements CommandHandler {

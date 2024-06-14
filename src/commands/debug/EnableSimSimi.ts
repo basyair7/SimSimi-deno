@@ -1,5 +1,5 @@
 import * as TelegramBot from "TelegramBot";
-import { CommandHandler } from "../../handlers/CommandHandler.ts";
+import { CommandHandler } from "handlers";
 
 class EnableSimSimi implements CommandHandler {
     readonly id = 2;

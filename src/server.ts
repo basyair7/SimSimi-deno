@@ -1,6 +1,6 @@
 import { config } from "dotenv";
-import ServiceApp from "./app/ServiceApp.ts";
-import { TelegramKeys, SimSimiKeys } from "./keys/index.ts";
+import ServiceApp from "ServiceApp";
+import { TelegramKeys, SimSimiKeys } from "keys";
 
 // Load configuration from .env file
 config({ export: true });
