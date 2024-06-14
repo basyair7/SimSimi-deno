@@ -1,0 +1,10 @@
+// cara membuat & mencari module deno
+/* 1. Deno Third-party Module Repository (deno.land/x)
+ * 2. membuat file import_maps.json
+    {
+        "imports": {
+            "namaModule": "https://deno.land/x/namaModule",
+            "namaModule2": "https://deno.land/x/namaModule2"
+        }
+    }
+*/
