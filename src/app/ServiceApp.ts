@@ -41,7 +41,7 @@ export default class ServiceApp {
 
     private initialize(): void {
          // Handle incoming messages
-         this.bot.on(UpdateType.Message, async ({ message }) => {
+         this.bot.on(UpdateType.Message, ({ message }) => {
             try {
                 if (message.text && message.text.startsWith('/')) {
                     for (const command of this.commands) {
@@ -50,15 +50,15 @@ export default class ServiceApp {
                             if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
                                 this.simsimiEnable = command instanceof EnableSimSimi;
                             }
-                            await command.execute(this.bot, message);
+                            command.execute(this.bot, message);
                             return; // Stop further processing
                         }
                     }
                 } else if (this.simsimiEnable) {
-                    await this.messageHandler.simsimi_enable(this.bot, message);
+                    this.messageHandler.simsimi_enable(this.bot, message);
                 }
                 else if (!this.simsimiEnable) {
-                    await this.messageHandler.message_bot(this.bot, message);
+                    this.messageHandler.message_bot(this.bot, message);
                 }
             } catch (error) {
                 console.error(error);
