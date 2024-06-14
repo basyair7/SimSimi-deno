@@ -1,4 +1,4 @@
-import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "../commands/index.ts";
+import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "commands";
 import { CommandHandler, MessageHandler } from "handlers";
 import { TelegramBot, UpdateType } from "TelegramBot";
 

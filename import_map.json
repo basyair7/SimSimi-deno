@@ -1,6 +1,7 @@
 {
     "imports": {
         "ServiceApp": "./src/app/ServiceApp.ts",
+        "commands": "./src/commands/index.ts",
         "handlers": "./src/handlers/index.ts",
         "types": "./src/types/index.ts",
         "keys": "./src/keys/index.ts",
