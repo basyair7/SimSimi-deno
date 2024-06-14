@@ -12,10 +12,10 @@ class DisableSimSimi implements CommandHandler {
         this.enable = false;
     }
 
-    execute(bot: TelegramBot.TelegramBot, msg: TelegramBot.Message): void {
+    async execute(bot: TelegramBot.TelegramBot, msg: TelegramBot.Message): Promise<void> {
         this.enable = false;
         const chatId = msg.chat.id;
-        bot.sendMessage({
+        await bot.sendMessage({
             chat_id: chatId, 
             text: "SimSimi has been Disabled."
         });

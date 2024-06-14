@@ -18,7 +18,7 @@ export default class ServiceApp {
         private RegionSimSimi: string
     ) {
         // initializing bot
-        this.username = TeleBotUsername;
+        this.username = this.TeleBotUsername;
         this.bot = new TelegramBot(this.TeleBotToken);
 
         // initializing message handler
@@ -42,19 +42,26 @@ export default class ServiceApp {
     private initialize(): void {
          // Handle incoming messages
          this.bot.on(UpdateType.Message, async ({ message }) => {
-            if (message.text && message.text.startsWith('/')) {
-                for (const command of this.commands) {
-                    const match = message.text.match(this.commandRegExp(command.name));
-                    if (match) {
-                        if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
-                            this.simsimiEnable = command instanceof EnableSimSimi;
+            try {
+                if (message.text && message.text.startsWith('/')) {
+                    for (const command of this.commands) {
+                        const match = message.text.match(this.commandRegExp(command.name));
+                        if (match) {
+                            if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
+                                this.simsimiEnable = command instanceof EnableSimSimi;
+                            }
+                            await command.execute(this.bot, message);
+                            return; // Stop further processing
                         }
-                        await command.execute(this.bot, message);
-                        return; // Stop further processing
                     }
+                } else if (this.simsimiEnable) {
+                    await this.messageHandler.simsimi_enable(this.bot, message);
                 }
-            } else if (this.simsimiEnable) {
-                await this.messageHandler.handle(this.bot, message);
+                else if (!this.simsimiEnable) {
+                    await this.messageHandler.message_bot(this.bot, message);
+                }
+            } catch (error) {
+                console.error(error);
             }
         });
     }

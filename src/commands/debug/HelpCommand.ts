@@ -47,7 +47,7 @@ class HelpCommand implements CommandHandler {
             helpMessage += "An error occurred while generating the help list.";
         }
 
-        bot.sendMessage({
+        await bot.sendMessage({
             chat_id: chatId,
             text: helpMessage
         });

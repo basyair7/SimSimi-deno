@@ -6,11 +6,11 @@ class StartCommand implements CommandHandler {
     readonly name = 'start';
     readonly description = 'Start the bot';
     
-    execute(bot: TelegramBot, msg: Message) {
+    async execute(bot: TelegramBot, msg: Message): Promise<void> {
         const chatId = msg.chat.id;
-        bot.sendMessage({
+        await bot.sendMessage({
             chat_id: chatId, 
-            text: "Welcome! How can I assist you today? Get /help commands?"
+            text: "Halo Odan!"
         });
     }
 }
