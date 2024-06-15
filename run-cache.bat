@@ -1,8 +1,20 @@
 @echo off
 cls
-del deno.lock
-@REM deno cache --reload --config=deno.json test/server.ts
-deno cache --reload --config=deno.json src/server.ts
+
+setlocal
+
+set "filename=deno.lock"
+@REM set "program=test/server.ts"
+set "program=src/server.ts"
+
+if exist "%filename%" (
+    del %filename%
+    deno cache --reload --config=deno.json %program%
+) else (
+    deno cache --reload --config=deno.json %program%
+)
+
+endlocal
 
 echo Press any key to continue...
 pause > nul

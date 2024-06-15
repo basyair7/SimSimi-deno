@@ -1,4 +1,4 @@
-import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "commands";
+import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi, BotStatus } from "commands";
 import { CommandHandler, MessageHandler } from "handlers";
 import { Bot } from "TeleBotGrammy";
 
@@ -29,6 +29,7 @@ class ServiceApp {
             new StartCommand(),
             new EnableSimSimi(),
             new DisableSimSimi(),
+            new BotStatus(),
         ];
 
         this.simsimiEnable = false;
