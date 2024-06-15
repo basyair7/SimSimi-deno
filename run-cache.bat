@@ -1,5 +1,6 @@
 @echo off
 cls
+del deno.lock
 @REM deno cache --reload --config=deno.json test/server.ts
 deno cache --reload --config=deno.json src/server.ts
 
