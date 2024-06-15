@@ -7,9 +7,9 @@ set "filename=.env"
 
 :: Cek apakah file ada
 if exist "%filename%" (
-    deno task test
+    @REM deno task test
     @REM deno task dev
-    @REM deno task start
+    deno task start
 
 ) else (
     echo File %filename% tidak ditemukan, membuat file baru...
