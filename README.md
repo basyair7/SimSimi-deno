@@ -9,9 +9,9 @@
 - tunggu hingga selesai
 
 ### cara buat environment bot
-- buka notepad
+- klik 2x file run.bat
+- buka file .env dengan notepad dengan klik kanan > Open with
 - isi token bot, username, url, keys, dan region sesuai dengan .env_example
-- simpan dengan nama .env
 
 ### cara jalankan program
 - klik 2x file run.bat
