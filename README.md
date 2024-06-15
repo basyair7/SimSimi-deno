@@ -14,4 +14,5 @@
 - isi token bot, username, url, keys, dan region sesuai dengan .env_example
 
 ### cara jalankan program
+- pastikan file .env sudah diisi
 - klik 2x file run.bat
