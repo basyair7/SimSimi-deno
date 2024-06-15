@@ -1,0 +1,16 @@
+// cara membuat & mencari module deno
+/* 1. Deno Third-party Module Repository (deno.land/x)
+ * 2. perintah di cmd/terminal : > deno init 
+ * 3. edit file deno.json
+    {
+        "tasks": {
+            "test": "deno run --allow-net --allow-read --allow-env --watch test/main.ts",
+            "dev": "deno run --allow-net --allow-read --allow-env --watch src/main.ts",
+            "start": "deno run --allow-net --allow-read --allow-env src/main.ts"
+        },
+        "imports": {
+            "namaModule": "https://deno.land/x/namaModule",
+            "namaModule2": "https://deno.land/x/namaModule2"
+        }
+    }
+*/
