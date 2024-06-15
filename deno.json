@@ -1,6 +1,8 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "start": "deno run --allow-net --allow-read --allow-env src/server.ts",
+    "test": "deno run --allow-net --allow-read --allow-env --watch test/server.ts",
+    "dev": "deno run --allow-net --allow-read --allow-env --watch src/server.ts"
   },
   "imports": {
     "ServiceApp": "./src/app/ServiceApp.ts",

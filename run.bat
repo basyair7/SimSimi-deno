@@ -1,7 +1,9 @@
 @echo off
 cls
-@REM deno run --config=deno.json --allow-net --allow-read --allow-env test/server.ts
-deno run --config=deno.json --allow-net --allow-read --allow-env src/server.ts
+
+@REM deno task dev
+@REM deno task test
+deno task start
 
 echo Press any key to continue...
 pause > nul
