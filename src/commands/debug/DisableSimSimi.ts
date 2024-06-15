@@ -14,7 +14,6 @@ class DisableSimSimi implements CommandHandler {
 
     execute(ctx: Bot.Context): void {
         this.enable = false;
-        // const chatId = ctx.message?.chat.id!;
         ctx.reply("SimSimi has been Disabled.");
     }
 

@@ -14,7 +14,6 @@ class EnableSimSimi implements CommandHandler {
 
     execute(ctx: Bot.Context): void {
         this.enable = true;
-        // const chatId = ctx.message?.chat.id!;
         ctx.reply("SimSimi has been enabled.");
     }
 
