@@ -42,11 +42,12 @@ class HelpCommand implements CommandHandler {
             commands.forEach(command => {
                 helpMessage += `/${command.name} - ${command.description}\n`;
             });
-        } catch (error) {
+        } 
+        catch (error) {
             console.error(error);
             helpMessage += "An error occurred while generating the help list.";
         }
-        
+
         await ctx.reply(helpMessage);
     }
 }
