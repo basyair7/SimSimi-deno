@@ -1,9 +1,9 @@
-import { config } from "dotenv";
+import * as dotenv from "dotenv";
 import ServiceApp from "ServiceApp";
 import { TelegramKeys, SimSimiKeys } from "keys";
 
 // Load configuration from .env file
-config({ export: true });
+dotenv.config({ export: true });
 
 const simsimikeys: SimSimiKeys = SimSimiKeys.getInstance(
     Deno.env.get("SIMSIMI_APIURL"),
