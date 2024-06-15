@@ -2,7 +2,7 @@ import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "comman
 import { CommandHandler, MessageHandler } from "handlers";
 import { Bot } from "TeleBotGrammy";
 
-export default class ServiceApp {
+class ServiceApp {
     private bot: Bot;
     private username: string;
     private messageHandler: MessageHandler;
@@ -71,3 +71,5 @@ export default class ServiceApp {
         console.log("Bot is running...");
     }
 }
+
+export default ServiceApp;
