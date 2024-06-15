@@ -1,6 +1,7 @@
 @echo off
 cls
-deno cache --reload --config=tsconfig.json --import-map=import_map.json src/server.ts
+@REM deno cache --reload --config=deno.json test/server.ts
+deno cache --reload --config=deno.json src/server.ts
 
 echo Press any key to continue...
 pause > nul
