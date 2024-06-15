@@ -5,7 +5,6 @@
         "handlers": "./src/handlers/index.ts",
         "types": "./src/types/index.ts",
         "keys": "./src/keys/index.ts",
-        "TelegramBot": "https://deno.land/x/telegram_bot_api@0.4.0/mod.ts",
         "TeleBotGrammy": "https://deno.land/x/grammy@v1.24.1/mod.ts",
         "dotenv": "https://deno.land/x/dotenv@v3.2.2/mod.ts",
         "axiod": "https://deno.land/x/axiod@0.26.2/mod.ts",

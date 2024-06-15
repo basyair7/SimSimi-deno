@@ -1,4 +1,4 @@
-import { TelegramBot, Message } from "TelegramBot";
+import { Context } from "TeleBotGrammy";
 
 export class SimSimiCommand {
     private simSimiApiUrl: string;
@@ -12,10 +12,9 @@ export class SimSimiCommand {
 
     }
 
-    protected async SimSimi_run(bot: TelegramBot, msg: Message) {
-        const chatId: number = msg.chat.id;
+    protected async SimSimi_run(ctx: Context) {
         try {
-            const message: string = msg.text || "";
+            const message: string = ctx.message?.text || "";
             
             if(message.startsWith('/')) return;
 
@@ -38,10 +37,8 @@ export class SimSimiCommand {
 
             const responseData = await response.json();
             const botReply: string = responseData.message;
-            await bot.sendMessage({
-                chat_id: chatId,
-                text: botReply
-            });
+
+            ctx.reply(botReply);
 
         } catch (error) {
             console.error(error);

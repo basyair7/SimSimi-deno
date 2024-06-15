@@ -1,4 +1,4 @@
-import * as TelegramBot from "TelegramBot";
+import * as Bot from "TeleBotGrammy";
 import { CommandHandler } from "handlers";
 
 class EnableSimSimi implements CommandHandler {
@@ -12,13 +12,10 @@ class EnableSimSimi implements CommandHandler {
         this.enable = true;
     }
 
-    async execute(bot: TelegramBot.TelegramBot, msg: TelegramBot.Message): Promise<void> {
+    execute(ctx: Bot.Context): void {
         this.enable = true;
-        const chatId = msg.chat.id;
-        await bot.sendMessage({
-            chat_id: chatId, 
-            text: "SimSimi has been enabled."
-        });
+        // const chatId = ctx.message?.chat.id!;
+        ctx.reply("SimSimi has been enabled.");
     }
 
     isEnable(): boolean {

@@ -1,14 +1,14 @@
 import * as path from "path";
 import { CommandHandler, CommandInfo } from "handlers";
-import { TelegramBot, Message } from "TelegramBot";
+import { Context } from "TeleBotGrammy";
 
 class HelpCommand implements CommandHandler {
     readonly id = 1;
     readonly name = 'help';
     readonly description = 'Get help';
 
-    async execute(bot: TelegramBot, msg: Message): Promise<void> {
-        const chatId: number = msg.chat.id;
+    async execute(ctx: Context): Promise<void> {
+        // const chatId: number = ctx.message?.chat.id!;
         const commandDir: string = path.dirname(path.fromFileUrl(import.meta.url));
         const commands: CommandInfo[] = [];
         let helpMessage: string = "Here are some commands you can use:\n";
@@ -47,10 +47,12 @@ class HelpCommand implements CommandHandler {
             helpMessage += "An error occurred while generating the help list.";
         }
 
-        await bot.sendMessage({
-            chat_id: chatId,
-            text: helpMessage
-        });
+        // await bot.sendMessage({
+        //     chat_id: chatId,
+        //     text: helpMessage
+        // });
+
+        await ctx.reply(helpMessage);
     }
 }
 

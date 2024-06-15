@@ -1,8 +1,8 @@
-import { TelegramBot, Message } from "TelegramBot";
+import { Context } from "TeleBotGrammy";
 
 export interface CommandHandler {
     readonly id: number;
     readonly name: string;
     readonly description: string;
-    execute(bot: TelegramBot, msg: Message): void;
+    execute(ctx: Context): void;
 }

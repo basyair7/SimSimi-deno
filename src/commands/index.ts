@@ -8,4 +8,4 @@ export {
     HelpCommand,
     EnableSimSimi,
     DisableSimSimi
-}
+};

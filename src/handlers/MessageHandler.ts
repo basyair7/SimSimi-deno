@@ -1,4 +1,4 @@
-import { TelegramBot, Message } from "TelegramBot";
+import { Context } from "TeleBotGrammy";
 import { SimSimiCommand } from "./SimSimiCommands.ts";
 
 export class MessageHandler extends SimSimiCommand {
@@ -9,27 +9,23 @@ export class MessageHandler extends SimSimiCommand {
         super(SimSimiAPIUrl, SimSimiAPIKeys, RegionSimSimi);
     }
 
-    simsimi_enable(bot: TelegramBot, msg: Message): void {
-        this.text = msg.text?.toString() || "";
+    simsimi_enable(ctx: Context): void {
+        this.text = ctx.message?.text?.toString() || "";
 
         // Ignore command
         if (this.text.startsWith('/')) return;
 
-        this.SimSimi_run(bot, msg);
+        this.SimSimi_run(ctx);
     }
 
-    async message_bot(bot: TelegramBot, msg: Message): Promise<void> {
+    message_bot(ctx: Context): void {
         try {
-            this.text = msg.text?.toString() || "";
-            const chatId: number = msg.chat.id;
+            this.text = ctx.message?.text?.toString() || "";
             
             // Ignore command
             if (this.text.startsWith('/')) return;
 
-            await bot.sendMessage({
-                chat_id: chatId,
-                text: this._reply
-            });
+            ctx.reply(this._reply);
 
         } catch (err) {
             console.error(err);

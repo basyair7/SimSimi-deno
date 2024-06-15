@@ -1,9 +1,9 @@
 import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi } from "commands";
 import { CommandHandler, MessageHandler } from "handlers";
-import { TelegramBot, UpdateType } from "TelegramBot";
+import { Bot } from "TeleBotGrammy";
 
 export default class ServiceApp {
-    private bot: TelegramBot;
+    private bot: Bot;
     private username: string;
     private messageHandler: MessageHandler;
     private commands: CommandHandler[]; // Type any for now, since TypeScript for Deno lacks specific typings
@@ -18,7 +18,7 @@ export default class ServiceApp {
     ) {
         // initializing bot
         this.username = this.TeleBotUsername;
-        this.bot = new TelegramBot(this.TeleBotToken);
+        this.bot = new Bot(this.TeleBotToken);
 
         // initializing message handler
         this.messageHandler = new MessageHandler(this.SimSimiAPIUrl, this.SimSimiAPIKeys, this.RegionSimSimi);
@@ -39,25 +39,25 @@ export default class ServiceApp {
     }
 
     private initialize(): void {
-         // Handle incoming messages
-         this.bot.on(UpdateType.Message, ({ message }) => {
+        // Handle incoming messages
+        this.bot.on("message:text", (ctx) => {
             try {
-                if (message.text && message.text.startsWith('/')) {
+                if (ctx.message.text && ctx.message.text.startsWith('/')) {
                     for (const command of this.commands) {
-                        const match = message.text.match(this.commandRegExp(command.name));
+                        const match = ctx.message.text.match(this.commandRegExp(command.name));
                         if (match) {
                             if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
                                 this.simsimiEnable = command instanceof EnableSimSimi;
                             }
-                            command.execute(this.bot, message);
+                            command.execute(ctx);
                             return; // Stop further processing
                         }
                     }
                 } else if (this.simsimiEnable) {
-                    this.messageHandler.simsimi_enable(this.bot, message);
+                    this.messageHandler.simsimi_enable(ctx);
                 }
                 else if (!this.simsimiEnable) {
-                    this.messageHandler.message_bot(this.bot, message);
+                    this.messageHandler.message_bot(ctx);
                 }
             } catch (error) {
                 console.error(error);
@@ -67,9 +67,7 @@ export default class ServiceApp {
 
     public run(): void {
         this.initialize();
-        this.bot.run({
-            polling: true,
-        });
+        this.bot.start();
         console.log("Bot is running...");
     }
 }
