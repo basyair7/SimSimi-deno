@@ -41,7 +41,7 @@ class ServiceApp {
 
     private initialize(): void {
         // Handle incoming messages
-        this.bot.on("message:text", (ctx) => {
+        this.bot.on("message:text", async (ctx) => {
             try {
                 if (ctx.message.text && ctx.message.text.startsWith('/')) {
                     for (const command of this.commands) {
@@ -55,7 +55,7 @@ class ServiceApp {
                         }
                     }
                 } else if (this.simsimiEnable) {
-                    this.messageHandler.simsimi_enable(ctx);
+                    await this.messageHandler.simsimi_enable(ctx);
                 }
                 else if (!this.simsimiEnable) {
                     this.messageHandler.message_bot(ctx);
