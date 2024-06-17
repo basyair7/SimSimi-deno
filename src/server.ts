@@ -12,12 +12,10 @@ const simsimikeys: SimSimiKeys = SimSimiKeys.getInstance(
 );
 const botToken: TelegramKeys = TelegramKeys.getInstance(Deno.env.get("TELEBOT_TOKEN"), Deno.env.get("TELEBOT_USERNAME"));
 
-const bot: ServiceApp = new ServiceApp(
+new ServiceApp(
     botToken.TeleBotToken, 
     botToken.TeleBotUsername,
     simsimikeys.SimSimiAPIUrl, 
     simsimikeys.SimSimiAPIKeys, 
     simsimikeys.RegionSimSimi
-);
-
-bot.run();
+).run();
