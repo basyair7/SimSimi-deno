@@ -6,6 +6,7 @@
     "compile": "deno compile --output dist/server.exe --allow-net --allow-read --allow-env src/server.ts"
   },
   "imports": {
+    "ConfigBot": "./src/config/index.ts",
     "ServiceApp": "./src/app/ServiceApp.ts",
     "commands": "./src/commands/index.ts",
     "handlers": "./src/handlers/index.ts",

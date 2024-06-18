@@ -10,18 +10,22 @@ class ServiceApp {
     private simsimiEnable: boolean;
 
     constructor(
-        private TeleBotToken: string,
-        private TeleBotUsername: string,
-        private SimSimiAPIUrl: string,
-        private SimSimiAPIKeys: string,
-        private RegionSimSimi: string
+        private config: {
+            TeleBotToken: string; TeleBotUsername: string; 
+            SimSimiAPIUrl: string; SimSimiAPIKeys: string; 
+            RegionSimSimi: string
+        }
     ) {
         // initializing bot
-        this.username = this.TeleBotUsername;
-        this.bot = new Bot(this.TeleBotToken);
+        this.username = this.config.TeleBotUsername;
+        this.bot = new Bot(this.config.TeleBotToken);
 
         // initializing message handler
-        this.messageHandler = new MessageHandler(this.SimSimiAPIUrl, this.SimSimiAPIKeys, this.RegionSimSimi);
+        this.messageHandler = new MessageHandler(
+            this.config.SimSimiAPIUrl, 
+            this.config.SimSimiAPIKeys,
+            this.config.RegionSimSimi
+        );
         
         // initializing commands
         this.commands = [
