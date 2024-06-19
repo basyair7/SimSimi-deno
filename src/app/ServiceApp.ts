@@ -1,12 +1,14 @@
-import { HelpCommand, StartCommand, EnableSimSimi, DisableSimSimi, BotStatus } from "commands";
-import { CommandHandler, MessageHandler } from "handlers";
+// deno-lint-ignore-file no-explicit-any
+import * as fs from "fs";
 import { Bot } from "TeleBotGrammy";
+import { MessageHandler } from "handlers";
+import type { CommandHandler } from "types";
 
 class ServiceApp {
     private bot: Bot;
     private username: string;
     private messageHandler: MessageHandler;
-    private commands: CommandHandler[]; // Type any for now, since TypeScript for Deno lacks specific typings
+    private commands: CommandHandler[] = []; // Type any for now, since TypeScript for Deno lacks specific typings
     private simsimiEnable: boolean;
 
     constructor(
@@ -28,15 +30,24 @@ class ServiceApp {
         );
         
         // initializing commands
-        this.commands = [
-            new HelpCommand(),
-            new StartCommand(),
-            new EnableSimSimi(),
-            new DisableSimSimi(),
-            new BotStatus(),
-        ];
-
+        this.loadCommands();
         this.simsimiEnable = false;
+    }
+
+    private loadCommands(): void {
+        const _commandsDir = "../commands";
+        fs.readdir("./src/commands", (err: any, files: string[]) => {
+            if (err) return console.error(err);
+            files.forEach(async (file: string) => {
+                const _commandModule = await import(`${_commandsDir}/${file}`);
+                const _commandClass = _commandModule.default;
+                const _commandName = file.split(".")[0];
+                if(typeof _commandClass === 'function') { 
+                    console.log(`[Command Manager]: Loading Command ${_commandName}`);
+                    this.commands.push(new _commandClass());
+                }
+            }); 
+        });
     }
 
     private commandRegExp(command: string): RegExp {
@@ -51,8 +62,8 @@ class ServiceApp {
                     for (const command of this.commands) {
                         const match = ctx.message.text.match(this.commandRegExp(command.name));
                         if (match) {
-                            if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
-                                this.simsimiEnable = command instanceof EnableSimSimi;
+                            if (command.name === "EnableSimSimi" || command.name === "DisableSimSimi") {
+                                this.simsimiEnable = command.name === "EnableSimSimi";
                             }
                             command.execute(ctx);
                             return; // Stop further processing

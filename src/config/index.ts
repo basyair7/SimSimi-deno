@@ -1,22 +1,38 @@
 import * as dotenv from "dotenv";
-import { TelegramKeys, SimSimiKeys } from "keys";
+import * as keys from "./keys/index.ts";
+
 
 // Load configuration from .env file
 dotenv.config({ export: true });
 
-const botToken: TelegramKeys = TelegramKeys.getInstance(Deno.env.get("TELEBOT_TOKEN"), Deno.env.get("TELEBOT_USERNAME"));
-const simsimikeys: SimSimiKeys = SimSimiKeys.getInstance(
-    Deno.env.get("SIMSIMI_APIURL"),
-    Deno.env.get("SIMSIMI_APIKEYS"),
-    Deno.env.get("REGION")
-);
+interface TypeConfig {
+    TeleBotToken: string,
+    TeleBotUsername: string,
+    SimSimiAPIUrl: string,
+    SimSimiAPIKeys: string,
+    RegionSimSimi: string
+}
 
-const config = {
-    TeleBotToken: botToken.TeleBotToken,
-    TeleBotUsername: botToken.TeleBotUsername,
-    SimSimiAPIUrl: simsimikeys.SimSimiAPIUrl,
-    SimSimiAPIKeys: simsimikeys.SimSimiAPIKeys,
-    RegionSimSimi: simsimikeys.RegionSimSimi,
-};
+class loadConfig {
+    public static load(): TypeConfig {        
+        const _botToken: keys.TelegramKeys = keys.TelegramKeys.getInstance(
+            Deno.env.get("TELEBOT_TOKEN"),
+            Deno.env.get("TELEBOT_USERNAME")
+        );
+        const _simsimikeys: keys.SimSimiKeys = keys.SimSimiKeys.getInstance(
+            Deno.env.get("SIMSIMI_APIURL"),
+            Deno.env.get("SIMSIMI_APIKEYS"),
+            Deno.env.get("REGION")
+        );
 
-export default config;
+        return {        
+            TeleBotToken: _botToken.TeleBotToken,
+            TeleBotUsername: _botToken.TeleBotUsername,
+            SimSimiAPIUrl: _simsimikeys.SimSimiAPIUrl,
+            SimSimiAPIKeys: _simsimikeys.SimSimiAPIKeys,
+            RegionSimSimi: _simsimikeys.RegionSimSimi,
+        }
+    }
+}
+
+export default loadConfig.load();

@@ -1,3 +1,5 @@
+import { Context } from "TeleBotGrammy";
+
 interface SimSimiKeysType {
     RegionSimSimi: string,
     SimSimiAPIUrl: string,
@@ -9,4 +11,22 @@ interface TelegramKeysType {
     TeleBotUsername: string
 }
 
-export type { SimSimiKeysType, TelegramKeysType };
+interface CommandHandler {
+    readonly id: number;
+    readonly name: string;
+    readonly description: string;
+    execute(ctx: Context): void;
+}
+
+interface CommandInfo {
+    id: number;
+    name: string;
+    description: string;
+}
+
+export type {
+    SimSimiKeysType,
+    TelegramKeysType,
+    CommandHandler,
+    CommandInfo
+};

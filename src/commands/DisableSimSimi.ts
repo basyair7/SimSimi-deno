@@ -1,18 +1,14 @@
 import * as Bot from "TeleBotGrammy";
-import { CommandHandler } from "handlers";
+import type { CommandHandler } from "types";
 
 class DisableSimSimi implements CommandHandler {
     readonly id = 3;
     readonly name = "simsimi_disable";
     readonly description: string = "Disable SimSimi response";
 
-    private enable: boolean;
+    private enable: boolean = false;
 
-    constructor() {
-        this.enable = false;
-    }
-
-    execute(ctx: Bot.Context): void {
+    public execute(ctx: Bot.Context): void {
         this.enable = false;
         ctx.reply("SimSimi has been Disabled.");
     }

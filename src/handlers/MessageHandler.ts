@@ -9,7 +9,7 @@ export class MessageHandler extends SimSimiCommand {
         super(SimSimiAPIUrl, SimSimiAPIKeys, RegionSimSimi);
     }
 
-    async simsimi_enable(ctx: Context): Promise <void> {
+    public async simsimi_enable(ctx: Context): Promise <void> {
         this.text = ctx.message?.text?.toString() || "";
 
         // Ignore command
@@ -18,7 +18,7 @@ export class MessageHandler extends SimSimiCommand {
         await this.SimSimi_run(ctx);
     }
 
-    message_bot(ctx: Context): void {
+    public message_bot(ctx: Context): void {
         try {
             this.text = ctx.message?.text?.toString() || "";
             
