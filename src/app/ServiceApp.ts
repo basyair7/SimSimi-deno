@@ -3,6 +3,8 @@ import * as fs from "fs";
 import { Bot } from "TeleBotGrammy";
 import { MessageHandler } from "handlers";
 import type { CommandHandler } from "types";
+import EnableSimSimi from "../commands/EnableSimSimi.ts";
+import DisableSimSimi from "../commands/DisableSimSimi.ts";
 
 class ServiceApp {
     private bot: Bot;
@@ -62,8 +64,8 @@ class ServiceApp {
                     for (const command of this.commands) {
                         const match = ctx.message.text.match(this.commandRegExp(command.name));
                         if (match) {
-                            if (command.name === "EnableSimSimi" || command.name === "DisableSimSimi") {
-                                this.simsimiEnable = command.name === "EnableSimSimi";
+                            if (command instanceof EnableSimSimi || command instanceof DisableSimSimi) {
+                                this.simsimiEnable = command instanceof EnableSimSimi;
                             }
                             command.execute(ctx);
                             return; // Stop further processing

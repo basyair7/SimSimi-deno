@@ -11,7 +11,7 @@ set create_env=true
 
 :: deno task state
 :: test, dev, start
-set deno_task_state=start
+set deno_task_state=dev
 
 :: check if file env exist or not
 if %create_env% == true (

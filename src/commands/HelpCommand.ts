@@ -7,13 +7,13 @@ class HelpCommand implements CommandHandler {
     readonly name = 'help';
     readonly description = 'Get help';
 
-    private commands: CommandInfo[] = [];
+    private commands!: CommandInfo[];
     private commandDir: string | undefined;
 
     public async execute(ctx: Context): Promise<void> {
+        this.commands = [];
         this.commandDir = path.dirname(path.fromFileUrl(import.meta.url));
         let _helpMessage: string = "Here are some commands you can use:\n";
-
         try {
             for await (const entry of Deno.readDir(this.commandDir)) {
                 if (entry.isFile && entry.name.endsWith('.ts') && entry.name !== "StartCommand.ts") {
