@@ -18,7 +18,7 @@ declare module "keys" {
             static getInstance(apiUrl: string, apiKey: string, region: string): SimSimiKeys;
             SimSimiAPIUrl: string;
             SimSimiAPIKeys: string;
-            RegionSimSimi: string;
+            SimSimiRegion: string;
         }
     }
     export = keys;
@@ -29,12 +29,12 @@ interface TypeConfig {
     TeleBotUsername: string;
     SimSimiAPIUrl: string;
     SimSimiAPIKeys: string;
-    RegionSimSimi: string;
+    SimSimiRegion: string;
 }
 
 declare class loadConfig {
     public static load(): TypeConfig;
 }
 
-declare const _default: TypeConfig;
+declare const _default: TypeConfig = loadConfig.load();
 export default _default;
