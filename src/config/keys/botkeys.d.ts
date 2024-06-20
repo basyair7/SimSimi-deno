@@ -4,11 +4,11 @@ declare class TelegramKeys implements TelegramKeysType {
     public TeleBotToken: string;
     public TeleBotUsername: string;
 
-    constructor(BotToken?: string, BotUsername?: string);
+    constructor(BotToken?: string, BotUsername?: string, TimeZone?: string);
 
     private validateKeys(): void;
 
-    public static getInstance(BotToken?: string, BotUsername?: string): TelegramKeys;
+    public static getInstance(BotToken?: string, BotUsername?: string, TimeZone?: string): TelegramKeys;
 }
 
 export default TelegramKeys;

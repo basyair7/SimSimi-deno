@@ -20,8 +20,12 @@ if %create_env% == true (
     ) else (
         echo File %filename% tidak ditemukan, membuat file baru...
         (
+            echo # Telegram Environment
             echo TELEBOT_TOKEN=
             echo TELEBOT_USERNAME=
+            echo SERVERTIMEZONE=
+            echo.
+            echo # SimSimi Environment
             echo REGION=
             echo SIMSIMI_APIURL=
             echo SIMSIMI_APIKEYS=

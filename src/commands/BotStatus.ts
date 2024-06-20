@@ -1,5 +1,6 @@
 import { Context } from "TeleBotGrammy";
 import * as utils from "utils";
+import config from "ConfigBot";
 import type { CommandHandler } from "types";
 
 class BotStatus implements CommandHandler {
@@ -22,7 +23,7 @@ class BotStatus implements CommandHandler {
     public execute(ctx: Context): void {
         this.information = "<b>System Information</b>";
         this.information += "<pre>Nama\t: SimSimi Ahul V2.0\n";
-        this.information += `Tanggal\t: ${utils.Clock.get()}\n`;
+        this.information += `Tanggal\t: ${utils.Clock.get(config.ServerTimeZone)}\n`;
         this.information += `Platform\t: ${this.osinfo} (${this.archinfo})\n`;
         this.information += `Target\t: ${this.target}\n`;
         this.information += "Status\t: Online</pre>\n";

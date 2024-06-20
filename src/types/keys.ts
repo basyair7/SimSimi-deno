@@ -1,7 +1,7 @@
 import { Context } from "TeleBotGrammy";
 
 interface SimSimiKeysType {
-    RegionSimSimi: string,
+    SimSimiRegion: string,
     SimSimiAPIUrl: string,
     SimSimiAPIKeys: string
 }

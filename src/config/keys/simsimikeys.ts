@@ -3,12 +3,12 @@ import { SimSimiKeysType } from "types";
 class SimSimiKeys implements SimSimiKeysType {
     public SimSimiAPIUrl: string;
     public SimSimiAPIKeys: string;
-    public RegionSimSimi: string;
+    public SimSimiRegion: string;
 
     constructor(simsimiApiUrl?: string, simsimiApiKeys?: string, simsimiRegion?: string) {
         this.SimSimiAPIUrl = simsimiApiUrl ?? 'nil';
         this.SimSimiAPIKeys = simsimiApiKeys ?? 'nil';
-        this.RegionSimSimi = simsimiRegion ?? 'nil';
+        this.SimSimiRegion = simsimiRegion ?? 'nil';
 
         this.validateKeys();
     }
