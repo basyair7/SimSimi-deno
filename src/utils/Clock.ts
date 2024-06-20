@@ -10,18 +10,7 @@ export class Clock {
     }
 
     public get(): string {
-        // get date
-        const _year = this.rezonedString.c.year;
-        const _month = this.rezonedString.c.month;
-        const _day = this.rezonedString.c.day;
-        
-        // get time
-        const _hour = this.rezonedString.c.hour;
-        const _minute = this.rezonedString.c.minute;
-        const _second = this.rezonedString.c.second;
-
-        const _datetime = `${_month}/${_day}/${_year} (${_hour}:${_minute}:${_second})`;
-
+        const _datetime = this.rezonedString.toFormat("M/d/yyyy (h:mm:ss a)");
         return _datetime;
     }
 }

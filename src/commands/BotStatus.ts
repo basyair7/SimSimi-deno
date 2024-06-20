@@ -22,14 +22,14 @@ class BotStatus implements CommandHandler {
     
     public execute(ctx: Context): void {
         this.clock = new utils.Clock();
-        this.information = "\t**System Information**\n\n";
-        this.information += "Nama\t: SimSimi Ahul V2.0 \n\n";
+        this.information = "<b>System Information</b>";
+        this.information += "<pre>Nama\t: SimSimi Ahul V2.0\n";
         this.information += `Tanggal\t: ${this.clock.get()}\n`;
         this.information += `Platform\t: ${this.osinfo} (${this.archinfo})\n`;
         this.information += `Target\t: ${this.target}\n`;
-        this.information += "Status\t: Online\n";
+        this.information += "Status\t: Online</pre>\n";
         
-        ctx.reply(this.information);
+        ctx.reply(this.information, { parse_mode: "HTML" });
     }
 }
 
