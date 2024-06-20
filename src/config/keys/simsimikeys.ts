@@ -5,10 +5,10 @@ class SimSimiKeys implements SimSimiKeysType {
     public SimSimiAPIKeys: string;
     public RegionSimSimi: string;
 
-    constructor(simsimiApiUrl?: string, simsimiApiKeys?: string, Regionsimsimi?: string) {
+    constructor(simsimiApiUrl?: string, simsimiApiKeys?: string, simsimiRegion?: string) {
         this.SimSimiAPIUrl = simsimiApiUrl ?? 'nil';
         this.SimSimiAPIKeys = simsimiApiKeys ?? 'nil';
-        this.RegionSimSimi = Regionsimsimi ?? 'nil';
+        this.RegionSimSimi = simsimiRegion ?? 'nil';
 
         this.validateKeys();
     }
@@ -18,8 +18,8 @@ class SimSimiKeys implements SimSimiKeysType {
             throw new Error("Not all ENV variables are defined!");
     }
 
-    public static getInstance(simsimiApiUrl?: string, simsimiApiKeys?: string, Regionsimsimi?: string): SimSimiKeys {
-        return new SimSimiKeys(simsimiApiUrl, simsimiApiKeys, Regionsimsimi);
+    public static getInstance(simsimiApiUrl?: string, simsimiApiKeys?: string, simsimiRegion?: string): SimSimiKeys {
+        return new SimSimiKeys(simsimiApiUrl, simsimiApiKeys, simsimiRegion);
     }
 }
 

@@ -5,14 +5,14 @@ export class SimSimiCommand {
     private simSimiApiKeys: string;
     private region: string;
 
-    constructor(SimSimiAPIUrl: string, SimSimiAPIKeys: string, RegionSimSimi: string) {
+    constructor(SimSimiAPIUrl: string, SimSimiAPIKeys: string, SimSimiRegion: string) {
         this.simSimiApiUrl = SimSimiAPIUrl;
         this.simSimiApiKeys = SimSimiAPIKeys;
-        this.region = RegionSimSimi;
+        this.region = SimSimiRegion;
 
     }
 
-    protected async SimSimi_run(ctx: Context) {
+    protected async SimSimi_run(ctx: Context): Promise<void> {
         try {
             const message: string = ctx.message?.text || "";
             

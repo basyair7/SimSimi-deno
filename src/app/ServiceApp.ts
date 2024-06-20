@@ -17,7 +17,7 @@ class ServiceApp {
         private config: {
             TeleBotToken: string; TeleBotUsername: string; 
             SimSimiAPIUrl: string; SimSimiAPIKeys: string; 
-            RegionSimSimi: string
+            SimSimiRegion: string
         }
     ) {
         // initializing bot
@@ -28,7 +28,7 @@ class ServiceApp {
         this.messageHandler = new MessageHandler(
             this.config.SimSimiAPIUrl, 
             this.config.SimSimiAPIKeys,
-            this.config.RegionSimSimi
+            this.config.SimSimiRegion
         );
         
         // initializing commands

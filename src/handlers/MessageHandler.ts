@@ -5,8 +5,8 @@ export class MessageHandler extends SimSimiCommand {
     private text!: string;
     private _reply: string = "Please reply /help";
     
-    constructor(SimSimiAPIUrl: string, SimSimiAPIKeys: string, RegionSimSimi: string) {
-        super(SimSimiAPIUrl, SimSimiAPIKeys, RegionSimSimi);
+    constructor(SimSimiAPIUrl: string, SimSimiAPIKeys: string, SimSimiRegion: string) {
+        super(SimSimiAPIUrl, SimSimiAPIKeys, SimSimiRegion);
     }
 
     public async simsimi_enable(ctx: Context): Promise <void> {
