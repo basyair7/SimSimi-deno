@@ -1,16 +1,14 @@
 import { DateTime } from "luxon";
 
 export class Clock {
-    private local: DateTime;
-    private rezonedString: DateTime;
+    private local: DateTime | undefined;
+    private rezonedString: DateTime | undefined;
 
-    constructor() {
-        this.local = DateTime.now();
-        this.rezonedString = this.local.setZone("Asia/Jakarta");
-    }
-
-    public get(): string {
-        const _datetime = this.rezonedString.toFormat("M/d/yyyy (h:mm:ss a)");
+    public static get(): string {
+        const thisClass = new Clock();
+        thisClass.local = DateTime.now();
+        thisClass.rezonedString = thisClass.local.setZone("Asia/Jakarta");
+        const _datetime = thisClass.rezonedString.toFormat("M/d/yyyy (h:mm:ss a)");
         return _datetime;
     }
 }
