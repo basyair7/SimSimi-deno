@@ -24,3 +24,5 @@ declare class ServiceApp {
 
     public run(): void;
 }
+
+export default ServiceApp;
