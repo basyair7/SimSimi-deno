@@ -30,7 +30,7 @@ class loadConfig {
         return {        
             TeleBotToken: _botToken.TeleBotToken,
             TeleBotUsername: _botToken.TeleBotUsername,
-            ServerTimeZone: _botToken.serverTimeZone,
+            ServerTimeZone: _botToken.ServerTimeZone,
             SimSimiAPIUrl: _simsimikeys.SimSimiAPIUrl,
             SimSimiAPIKeys: _simsimikeys.SimSimiAPIKeys,
             SimSimiRegion: _simsimikeys.SimSimiRegion,

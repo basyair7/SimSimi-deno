@@ -3,12 +3,12 @@ import { TelegramKeysType } from "types";
 class TelegramKeys implements TelegramKeysType {
     public TeleBotToken: string;
     public TeleBotUsername: string;
-    public serverTimeZone: string;
+    public ServerTimeZone: string;
 
     constructor(BotToken?: string, BotUsername?: string, TimeZone?: string) {
         this.TeleBotToken = BotToken ?? 'nil';
         this.TeleBotUsername = BotUsername ?? 'nil';
-        this.serverTimeZone = TimeZone ?? 'nil';
+        this.ServerTimeZone = TimeZone ?? 'nil';
         this.validateKeys();
     }
 

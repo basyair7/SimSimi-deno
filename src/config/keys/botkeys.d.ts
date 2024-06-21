@@ -3,6 +3,7 @@ import { TelegramKeysType } from "types";
 declare class TelegramKeys implements TelegramKeysType {
     public TeleBotToken: string;
     public TeleBotUsername: string;
+    public ServerTimeZone: string;
 
     constructor(BotToken?: string, BotUsername?: string, TimeZone?: string);
 

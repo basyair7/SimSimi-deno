@@ -7,8 +7,9 @@ interface SimSimiKeysType {
 }
 
 interface TelegramKeysType {
-    TeleBotToken: string,
-    TeleBotUsername: string
+    TeleBotToken: string;
+    TeleBotUsername: string;
+    ServerTimeZone: string;
 }
 
 interface CommandHandler {
