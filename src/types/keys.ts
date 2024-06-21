@@ -1,9 +1,9 @@
 import { Context } from "TeleBotGrammy";
 
 interface SimSimiKeysType {
-    SimSimiRegion: string,
-    SimSimiAPIUrl: string,
-    SimSimiAPIKeys: string
+    SimSimiRegion: string;
+    SimSimiAPIUrl: string;
+    SimSimiAPIKeys: string;
 }
 
 interface TelegramKeysType {
