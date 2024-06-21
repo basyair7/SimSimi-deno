@@ -36,5 +36,5 @@ declare class loadConfig {
     public static load(): TypeConfig;
 }
 
-declare const _default: TypeConfig = loadConfig.load();
+declare const _default: TypeConfig;
 export default _default;
