@@ -6,10 +6,7 @@ class DisableSimSimi implements CommandHandler {
     readonly name = "simsimi_disable";
     readonly description: string = "Disable SimSimi response";
 
-    // private enable!: boolean;
-
     public execute(ctx: Bot.Context): void {
-        // this.enable = false;
         ctx.reply("SimSimi has been Disabled.");
     }
 }

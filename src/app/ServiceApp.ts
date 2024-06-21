@@ -38,13 +38,13 @@ class ServiceApp {
 
     private loadCommands(): void {
         const _commandsDir = "../commands";
-        fs.readdir("./src/commands", (err: any, files: string[]) => {
-            if (err) return console.error(err);
+        fs.readdir("./src/commands", (error: any, files: string[]) => {
+            if (error) return console.error(error);
             files.forEach(async (file: string) => {
                 const _commandModule = await import(`${_commandsDir}/${file}`);
                 const _commandClass = _commandModule.default;
                 const _commandName = file.split(".")[0];
-                if(typeof _commandClass === 'function') { 
+                if (typeof _commandClass === 'function') { 
                     console.log(`[Command Manager]: Loading Command ${_commandName}`);
                     this.commands.push(new _commandClass());
                 }
