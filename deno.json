@@ -19,5 +19,10 @@
     "path": "https://deno.land/std@0.224.0/path/mod.ts",
     "fs": "node:fs",
     "luxon": "https://cdn.skypack.dev/luxon"
+  },
+  "compilerOptions": {
+    "typeRoots": [
+      "./declarations"
+    ]
   }
 }
