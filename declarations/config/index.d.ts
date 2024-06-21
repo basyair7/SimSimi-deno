@@ -1,11 +1,3 @@
-declare module "dotenv" {
-    interface DotenvConfigOptions {
-        path?: string;
-        export?: boolean;
-    }
-    function config(options?: DotenvConfigOptions): void;
-}
-
 declare module "keys" {
     namespace keys {
         class TelegramKeys {
