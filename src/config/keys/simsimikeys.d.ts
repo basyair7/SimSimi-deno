@@ -3,7 +3,7 @@ import { SimSimiKeysType } from "types";
 declare class SimSimiKeys implements SimSimiKeysType {
     public SimSimiAPIUrl: string;
     public SimSimiAPIKeys: string;
-    public RegionSimSimi: string;
+    public SimSimiRegion: string;
 
     constructor(simsimiApiUrl?: string, simsimiApiKeys?: string, simsimiRegion?: string);
 
