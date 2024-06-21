@@ -6,12 +6,12 @@ import * as keys from "./keys/index.ts";
 dotenv.config({ export: true });
 
 interface TypeConfig {
-    TeleBotToken: string,
-    TeleBotUsername: string,
-    ServerTimeZone: string,
-    SimSimiAPIUrl: string,
-    SimSimiAPIKeys: string,
-    SimSimiRegion: string
+    TeleBotToken: string;
+    TeleBotUsername: string;
+    ServerTimeZone: string;
+    SimSimiAPIUrl: string;
+    SimSimiAPIKeys: string;
+    SimSimiRegion: string;
 }
 
 class loadConfig {
