@@ -6,9 +6,9 @@ import _valueHeaderText from "../types/HeaderCreateText.ts";
 import type { CommandHandler, CommandInfo } from "types";
 
 class CreateTextCommands implements CommandHandler {
-    id = 3;
-    name = "createtextcommands";
-    description = "Generate a list of commands into a .txt file";
+    readonly id = 3;
+    readonly name = "createtextcommands";
+    readonly description = "Generate a list of commands into a .txt file";
 
     private commands!: CommandInfo[];
     private commandDir: string | undefined;

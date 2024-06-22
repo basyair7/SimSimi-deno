@@ -1,14 +1,15 @@
 import { Context } from "TeleBotGrammy";
 import * as path from "path";
 import config from "ConfigBot";
-import type { CommandHandler, CommandList } from "types";
+import type { CommandHandler, CommandInfo, CommandList } from "types";
 
 class SetCommands implements CommandHandler {
-    id = 2;
-    name = 'setcommands';
-    description = 'change the list of commands';
+    readonly id = 2;
+    readonly name = 'setcommands';
+    readonly description = 'change the list of commands';
 
-    private commands!: CommandList[];
+    private commands!: CommandInfo[];
+    private commandsList!: CommandList[];
     private commandDir: string | undefined;
 
     private async setBotCommands(_commands: CommandList[]): Promise<string> {
@@ -33,6 +34,7 @@ class SetCommands implements CommandHandler {
 
     async execute(ctx: Context): Promise<void> {
         this.commands = [];
+        this.commandsList = [];
         this.commandDir = path.dirname(path.fromFileUrl(import.meta.url));
         try {
             for await (const entry of Deno.readDir(this.commandDir)) {
@@ -46,7 +48,8 @@ class SetCommands implements CommandHandler {
                         const _commandInstance: CommandHandler = new _commandClass();
                         if ('name' in _commandInstance && 'description' in _commandInstance) {
                             this.commands.push({
-                                command: _commandInstance.name,
+                                id: _commandInstance.id,
+                                name: _commandInstance.name,
                                 description: _commandInstance.description
                             });
                         }
@@ -60,7 +63,15 @@ class SetCommands implements CommandHandler {
                 }
             }
 
-            const _reply = await this.setBotCommands(this.commands);
+            this.commands.sort((a, b) => a.id - b.id);
+            for (const commandList of this.commands) {
+                this.commandsList.push({
+                    command: commandList.name,
+                    description: commandList.description
+                });
+            }
+
+            const _reply = await this.setBotCommands(this.commandsList);
             ctx.reply(`${_reply}, please reply /start`, {parse_mode: "HTML"});
 
         } catch (error) {
