@@ -12,10 +12,15 @@ interface TypeConfig {
     SimSimiAPIUrl: string;
     SimSimiAPIKeys: string;
     SimSimiRegion: string;
+    Version: string;
+    OutputPathText: string;
 }
 
 class loadConfig {
-    public static load(): TypeConfig {        
+    private version_app: string = "1.0.12";
+    private outputPathText: string = "./commands-BotFather.txt";
+    public static load(): TypeConfig {
+        const thisClass = new loadConfig();
         const _botToken: keys.TelegramKeys = keys.TelegramKeys.getInstance(
             Deno.env.get("TELEBOT_TOKEN"),
             Deno.env.get("TELEBOT_USERNAME"),
@@ -34,6 +39,8 @@ class loadConfig {
             SimSimiAPIUrl: _simsimikeys.SimSimiAPIUrl,
             SimSimiAPIKeys: _simsimikeys.SimSimiAPIKeys,
             SimSimiRegion: _simsimikeys.SimSimiRegion,
+            Version: thisClass.version_app,
+            OutputPathText: thisClass.outputPathText
         }
     }
 }
