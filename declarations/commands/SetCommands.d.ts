@@ -1,4 +1,4 @@
-import { Context } from "https://deno.land/x/grammy@v1.24.1/context.ts";
+import { Context } from "TeleBotGrammy";
 import { CommandHandler, CommandList } from "types";
 
 declare class SetCommands implements CommandHandler {
