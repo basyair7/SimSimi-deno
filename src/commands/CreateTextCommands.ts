@@ -52,7 +52,7 @@ class CreateTextCommands implements CommandHandler {
             this.commands.forEach(command => {
                 _valueCommands += `${command.name} - ${command.description}\n`;
             });
-            _menuMsg += await this.writeCommands.writeToFile(`${_valueHeaderText(config.TeleBotUsername)}\n${_valueCommands}`);
+            _menuMsg += await this.writeCommands.writeToFile(`${_valueHeaderText(config.TeleBotUsername)}\n\n${_valueCommands}`);
             _menuMsg += `\n\n${_valueHeaderText(config.TeleBotUsername)}<pre>${_valueCommands}</pre>`;
 
         } catch (error) {
