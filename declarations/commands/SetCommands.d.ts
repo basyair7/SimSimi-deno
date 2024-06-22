@@ -13,3 +13,5 @@ declare class SetCommands implements CommandHandler {
     
     public execute(ctx: Context): void;
 }
+
+export default SetCommands;
