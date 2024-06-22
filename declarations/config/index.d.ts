@@ -22,6 +22,8 @@ interface TypeConfig {
     SimSimiAPIUrl: string;
     SimSimiAPIKeys: string;
     SimSimiRegion: string;
+    Version: string;
+    OutputPathText: string;
 }
 
 declare class loadConfig {
