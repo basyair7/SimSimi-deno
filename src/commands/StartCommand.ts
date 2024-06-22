@@ -7,7 +7,7 @@ class StartCommand implements CommandHandler {
     readonly description = 'Start the bot';
     
     public execute(ctx: Context): void {
-        ctx.reply("Welcome! How can I assist you today? Get /help commands?");
+        ctx.reply("Welcome! how can I assist you today? Get /menu commands? or setup your bot /setcommands");
     }
 }
 
