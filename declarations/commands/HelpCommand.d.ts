@@ -1,5 +1,5 @@
 import { Context } from "TeleBotGrammy";
-import { CommandHandler, CommandInfo } from "types";
+import type { CommandHandler, CommandInfo } from "types";
 
 declare class HelpCommand implements CommandHandler {
     readonly id: number;
