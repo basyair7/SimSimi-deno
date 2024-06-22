@@ -25,9 +25,16 @@ interface CommandInfo {
     description: string;
 }
 
+interface CommandList {
+    command: string;
+    description: string;
+}
+
+
 export type {
     SimSimiKeysType,
     TelegramKeysType,
     CommandHandler,
-    CommandInfo
+    CommandInfo,
+    CommandList
 };
