@@ -2,10 +2,10 @@
   "name": "SimSimi deno",
   "version": "1.0.12",
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-env src/server.ts",
-    "test": "deno run --allow-net --allow-read --allow-env --watch test/server.ts",
-    "dev": "deno run --allow-net --allow-read --allow-env --watch src/server.ts",
-    "compile": "deno compile --output dist/server.exe --allow-net --allow-read --allow-env src/server.ts"
+    "start": "deno run --allow-net --allow-read --allow-write --allow-env src/server.ts",
+    "test": "deno run --allow-net --allow-read --allow-write --allow-env --watch test/server.ts",
+    "dev": "deno run --allow-net --allow-read --allow-write --allow-env --watch src/server.ts",
+    "compile": "deno compile --output dist/server.exe --allow-net --allow-read --allow-write --allow-env src/server.ts"
   },
   "imports": {
     "ConfigBot": "./src/config/index.ts",
