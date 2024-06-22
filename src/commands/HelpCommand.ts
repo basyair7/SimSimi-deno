@@ -16,7 +16,7 @@ class HelpCommand implements CommandHandler {
         let _helpMessage: string = "Here are some commands you can use:\n";
         try {
             for await (const entry of Deno.readDir(this.commandDir)) {
-                if (entry.isFile && entry.name.endsWith('.ts') && !entry.name.endsWith('.d.ts') && entry.name !== "StartCommand.ts") 
+                if (entry.isFile && entry.name.endsWith('.ts') && entry.name !== "StartCommand.ts") 
                 {
                     const _filePath = path.join(this.commandDir, entry.name);
                     const _fileUrl = path.toFileUrl(_filePath).href; // Convert to file URL
