@@ -7,6 +7,7 @@ declare class SetCommands implements CommandHandler {
     readonly description: string;
 
     private commands: CommandList[];
+    private commandsList: CommandList[];
     private commandDir: string | undefined;
 
     private setBotCommands(_commands: CommandList[]): Promise<string>;
