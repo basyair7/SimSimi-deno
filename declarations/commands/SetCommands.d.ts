@@ -10,8 +10,10 @@ declare class SetCommands implements CommandHandler {
     private commandsList: CommandList[];
     private commandDir: string | undefined;
 
+    private createListCommands(ctx: Context): Promise<void>;
+
     private setBotCommands(_commands: CommandList[]): Promise<string>;
-    
+
     public execute(ctx: Context): void;
 }
 
