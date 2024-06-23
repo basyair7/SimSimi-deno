@@ -72,7 +72,7 @@ class SetCommands implements CommandHandler {
 
     async execute(ctx: Context): Promise<void> {
         try {
-            this.createListCommands(ctx);
+            await this.createListCommands(ctx);
             this.commandsList = [];
             this.commands.sort((a, b) => a.id - b.id);
             
