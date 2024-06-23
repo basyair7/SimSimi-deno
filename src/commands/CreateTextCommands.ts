@@ -16,7 +16,7 @@ class CreateTextCommands implements CommandHandler {
     private File: InputFile;
 
     constructor() {
-        this.File = new InputFile("./commands-BotFather.txt");
+        this.File = new InputFile(config.OutputPathText);
         this.writeCommands = new createText(config.OutputPathText);
     }
 
@@ -64,7 +64,7 @@ class CreateTextCommands implements CommandHandler {
             console.error(error);
             _menuMsg += `Error : ${error}\n`;
         }
-        
+
         await ctx.reply(_menuMsg, { parse_mode: "HTML" });
     }
 }
