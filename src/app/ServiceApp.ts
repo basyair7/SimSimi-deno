@@ -44,7 +44,7 @@ class ServiceApp {
                 const _commandModule = await import(`${_commandsDir}/${file}`);
                 const _commandClass = _commandModule.default;
                 const _commandName = file.split(".")[0];
-                if (typeof _commandClass === 'function') { 
+                if (typeof _commandClass === 'function' && !_commandName.endsWith(".disable")) { 
                     console.log(`[Command Manager]: Loading Command ${_commandName}`);
                     this.commands.push(new _commandClass());
                 }
