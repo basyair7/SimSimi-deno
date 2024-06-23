@@ -26,7 +26,7 @@ class CreateTextCommands implements CommandHandler {
         let _menuMsg: string = "Creating a text file : \n";
         try {
             for await (const entry of Deno.readDir(this.commandDir)) {
-                if (entry.isFile && entry.name.endsWith('.ts')&& !entry.name.endsWith('.disable.ts')) {
+                if (entry.isFile && entry.name.endsWith('.ts') && !entry.name.endsWith('.disable.ts')) {
                     const _filePath: string = path.join(this.commandDir, entry.name);
                     const _fileUrl: string = path.toFileUrl(_filePath).href;
                     const _commandModule = await import(_fileUrl);
