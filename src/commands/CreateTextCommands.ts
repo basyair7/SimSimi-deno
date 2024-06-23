@@ -1,4 +1,4 @@
-import { Context } from "TeleBotGrammy";
+import { Context, InputFile } from "TeleBotGrammy";
 import * as path from "path";
 import config from "ConfigBot";
 import createText from "../models/createText.ts";
@@ -13,8 +13,10 @@ class CreateTextCommands implements CommandHandler {
     private commands!: CommandInfo[];
     private commandDir: string | undefined;
     private writeCommands: createText;
+    private File: InputFile;
 
     constructor() {
+        this.File = new InputFile("./commands-BotFather.txt");
         this.writeCommands = new createText(config.OutputPathText);
     }
 
@@ -60,6 +62,7 @@ class CreateTextCommands implements CommandHandler {
             _menuMsg += `Error : ${error}\n`;
         }
 
+        await ctx.api.sendDocument(ctx.chatId!, this.File);
         await ctx.reply(_menuMsg, { parse_mode: "HTML" });
     }
 }

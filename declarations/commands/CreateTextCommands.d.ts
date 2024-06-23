@@ -2,7 +2,6 @@ import { Context } from "TeleBotGrammy";
 import createText from "../models/createText.d.ts";
 import type { CommandHandler, CommandInfo } from "types";
 
-
 declare class CreateTextCommands implements CommandHandler {
     readonly id: number;
     readonly name: string;
