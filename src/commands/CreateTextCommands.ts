@@ -57,12 +57,14 @@ class CreateTextCommands implements CommandHandler {
             _menuMsg += await this.writeCommands.writeToFile(`${_valueHeaderText(config.TeleBotUsername)}\n\n${_valueCommands}`);
             _menuMsg += `\n\n${_valueHeaderText(config.TeleBotUsername)}<pre>${_valueCommands}</pre>`;
 
+            // send file .txt to client Telegram
+            await ctx.api.sendDocument(ctx.chatId!, this.File);
+
         } catch (error) {
             console.error(error);
             _menuMsg += `Error : ${error}\n`;
         }
-
-        await ctx.api.sendDocument(ctx.chatId!, this.File);
+        
         await ctx.reply(_menuMsg, { parse_mode: "HTML" });
     }
 }
