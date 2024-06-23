@@ -73,7 +73,6 @@ class StartCommand implements CommandHandler {
                 });
             }
             this.setBotCommands(this.commandsList, ctx);
-            ctx.reply("Welcome! how can I assist you today? Get /help commands?");
 
         } catch (error) {
             console.error(`Error : ${error}`);
@@ -83,6 +82,7 @@ class StartCommand implements CommandHandler {
     
     public async execute(ctx: Context): Promise<void> {
         await this.createListCommands(ctx);
+        ctx.reply("Welcome! how can I assist you today? Get /help commands?");
     }
 }
 
