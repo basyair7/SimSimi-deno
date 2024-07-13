@@ -1,5 +1,4 @@
 {
-  "name": "SimSimi deno",
   "version": "1.0.12",
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-write --allow-env src/server.ts",
